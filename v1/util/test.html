@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test for util/tools.js</title>
+    <script type="text/javascript" src="tool.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    window.onload = function() {
+        var Util = window.util;
+        var Table = Util.table;
+        var table = Table.new_one('my_table',
+                                            {
+                                                header : ['id', 'name', 'age']
+                                            });
+        var student1 = Table.new_record(['1', 'Tony', '21']);
+        student1.set({
+            id : 'myT'
+        });
+        table.add(student1);
+        document.body.appendChild(table);
+
+        var Form = Util.form;
+        var my_form = Form.create_new('my_form', { id : 't', _class : 'sss' });
+        my_form.add_field({
+            tag : 'input',
+            type: 'text'
+        })
+        document.body.appendChild(my_form);
+
+        Util.js_for_html.init_load_file({
+            num : {
+                url : 'numTool.js',
+                onload : function() {
+                    alert('File loaded.');
+                }
+            }
+        });
+
+
+
+
+
+    };
+
+
+</script>
+
+</body>
+</html>
